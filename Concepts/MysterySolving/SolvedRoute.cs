@@ -8,10 +8,10 @@ public abstract class SolvedRoute
     /// <returns>記録に成功したらtrue,それ以外はfalse</returns>
     protected internal abstract bool Save(SolvedMystery solvedMystery);
 
-    /// <summary>
-    /// 最後に解いた謎を取得する.解いたことがない場合はnullを返す.playerだけが呼び出すことができる
-    /// </summary>
-    /// <returns></returns>
-    protected internal abstract SolvedMystery? Last();
+    internal SolvedMystery? Last()
+    {
+        return LastId() is { } id ? new SolvedMystery(id) : null;
+    }
+    protected abstract MysteryId? LastId();
 
 }

@@ -8,9 +8,9 @@ namespace Concepts.Tests.MysterySolvingTest.TestObjects.Mock
             return true;
         }
 
-        protected internal override SolvedMystery? Last()
+        protected override MysteryId? LastId()
         {
-            return new SolvedMystery(new MysteryId("mst-mystery-001"));
+            return new MysteryId("mst-mystery-001");
         }
     }
 }
