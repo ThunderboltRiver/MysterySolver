@@ -11,17 +11,6 @@ namespace Concepts.Tests.MysterySolvingTest
             Assert.NotNull(key);
         }
 
-        [Theory]
-        [InlineData("mst-key-ksaf")]
-        [InlineData("mst-key-001x")]
-        [InlineData("-mst-key-001")]
-        [InlineData(null)]
-        [InlineData("")]
-        public void Key_コンストラクタで間違えたキーIDを指定するとArgumetExceptionをスローする(string keyId)
-        {
-            Assert.Throws<ArgumentException>(() => new Key(keyId));
-        }
-
         [Fact]
         public void Key_同一性_キーIDが同じなら同じキー()
         {

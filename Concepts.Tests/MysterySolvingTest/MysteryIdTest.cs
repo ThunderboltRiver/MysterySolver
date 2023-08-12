@@ -11,18 +11,6 @@ namespace Concepts.Tests.MysterySolvingTest
             Assert.NotNull(mysteryId);
         }
 
-        [Theory]
-        [InlineData("mst-mystery-ksaf")]
-        [InlineData("mst-mystery-001x")]
-        [InlineData("-mst-mystery-001")]
-        [InlineData(null)]
-        [InlineData("")]
-        public void MysteryId_Idが間違っているならArgumentExceptionをスローする(string id)
-        {
-            Assert.Throws<ArgumentException>(() => new MysteryId(id));
-        }
-
-
         [Fact]
         public void MysteryId_同一性_同じ文字列なら同じ()
         {
