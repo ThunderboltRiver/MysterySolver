@@ -55,7 +55,7 @@ public class Mystery
     {
         if (key != _atuhenticationKey) return null; //共通鍵認証
         if (_beforeMysteryId == null) return new SolvedMystery(_mysteryId); //最初の謎は共通鍵認証のみで解ける
-        if (solvedRoute != null && solvedRoute.IsAuthorizedBy(_beforeMysteryId)) return new SolvedMystery(_mysteryId); //前の謎を解いているか
+        if (solvedRoute != null && solvedRoute.IsAuthorizedBy(_beforeMysteryId.Value)) return new SolvedMystery(_mysteryId); //前の謎を解いているか
         return null;
     }
 }
