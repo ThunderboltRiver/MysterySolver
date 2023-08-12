@@ -1,8 +1,12 @@
 namespace Concepts.MysterySolving
 {
+    /// <summary>
+    /// 謎を特定するための識別情報を表す値オブジェクト
+    /// </summary>
     public readonly struct MysteryId : IEquatable<MysteryId>
     {
         private readonly string _value;
+
         internal MysteryId(string value)
         {
             _value = value;
