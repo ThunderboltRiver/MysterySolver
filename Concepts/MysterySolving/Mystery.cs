@@ -51,11 +51,11 @@ public class Mystery
     /// </summary>
     /// <param name="key">認証対象となる鍵</param>
     /// <returns>解かれた謎</returns>
-    internal SolvedMystery? Authenticate(Key key, SolvedMystery? lastSolvedMystery)
+    internal SolvedMystery? Authenticate(Key key, SolvedRoute? solvedRoute)
     {
         if (key != _atuhenticationKey) return null; //共通鍵認証
         if (_beforeMysteryId == null) return new SolvedMystery(_mysteryId); //最初の謎は共通鍵認証のみで解ける
-        if (lastSolvedMystery != null && lastSolvedMystery.AuthorizedBy(_beforeMysteryId)) return new SolvedMystery(_mysteryId); //前の謎を解いているか
+        if (solvedRoute != null && solvedRoute.IsAuthorizedBy(_beforeMysteryId)) return new SolvedMystery(_mysteryId); //前の謎を解いているか
         return null;
     }
 }

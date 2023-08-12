@@ -11,7 +11,7 @@ public record SolvedMystery
         _mysteryId = mysteryId;
     }
 
-    internal bool AuthorizedBy(MysteryId mysteryId)
+    internal bool IsAuthenticatedBy(MysteryId mysteryId)
     {
         return _mysteryId == mysteryId;
     }
