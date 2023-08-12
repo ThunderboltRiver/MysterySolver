@@ -2,14 +2,6 @@ namespace Concepts.Tests.MysterySolvingTest
 {
     public class MysteryIdTest
     {
-        [Theory]
-        [InlineData("mst-mystery-001")]
-        [InlineData("mst-mystery-002")]
-        public void MysteryId_Idが正しいならMysteryIdが生成される(string id)
-        {
-            var mysteryId = new MysteryId(id);
-            Assert.NotNull(mysteryId);
-        }
 
         [Fact]
         public void MysteryId_同一性_同じ文字列なら同じ()
@@ -24,6 +16,22 @@ namespace Concepts.Tests.MysterySolvingTest
             var mysteryId1 = new MysteryId("mst-mystery-001");
             var mysteryId2 = new MysteryId("mst-mystery-002");
             Assert.NotEqual(mysteryId1, mysteryId2);
+        }
+
+        [Fact]
+        public void MysteryId_等価性_同じ文字列なら等価演算子はtrue()
+        {
+            var mysteryId = new MysteryId("mst-mystery-001");
+            var mysteryId1 = new MysteryId("mst-mystery-001");
+            Assert.True(mysteryId1 == mysteryId);
+        }
+
+        [Fact]
+        public void MysteryId_等価性_異なる文字列なら等価演算子はfalse()
+        {
+            var mysteryId1 = new MysteryId("mst-mystery-001");
+            var mysteryId2 = new MysteryId("mst-mystery-002");
+            Assert.False(mysteryId1 == mysteryId2);
         }
     }
 }
