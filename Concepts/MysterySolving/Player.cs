@@ -11,12 +11,11 @@ namespace Concepts.MysterySolving
         }
         public bool Solve(Mystery mystery, KeyId keyId)
         {
-            var key = _keyInventry.Find(keyId);
-            if (key == null) return false;
-            var solvedMystery = mystery.Authenticate(key, _solvedRoute.Last());
+            var key = _keyInventry.Find(keyId) ?? throw new InvalidOperationException("ユーザーは鍵を所有していない");
+            var solvedMystery = mystery.Authenticate(key, _solvedRoute);
             if (solvedMystery == null) return false;
-            return _solvedRoute.Save(solvedMystery);
-
+            _solvedRoute.AddNew(solvedMystery);
+            return true;
         }
     }
 }

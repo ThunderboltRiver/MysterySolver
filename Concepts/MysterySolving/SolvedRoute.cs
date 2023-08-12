@@ -1,17 +1,18 @@
-namespace Concepts.MysterySolving;
-public abstract class SolvedRoute
+namespace Concepts.MysterySolving
 {
-    /// <summary>
-    /// 謎を解いたことを記録する.playerだけが呼び出すことができる
-    /// </summary>
-    /// <param name="solvedMystery"></param>
-    /// <returns>記録に成功したらtrue,それ以外はfalse</returns>
-    protected internal abstract bool Save(SolvedMystery solvedMystery);
-
-    internal SolvedMystery? Last()
+    public class SolvedRoute
     {
-        return LastId() is { } id ? new SolvedMystery(id) : null;
-    }
-    protected abstract MysteryId? LastId();
+        private readonly Stack<SolvedMystery> _solvedMysteries = new();
 
+        internal void AddNew(SolvedMystery solvedMystery)
+        {
+            if (!_solvedMysteries.Contains(solvedMystery)) _solvedMysteries.Push(solvedMystery);
+        }
+
+        internal bool IsAuthorizedBy(MysteryId mysteryId)
+        {
+            if (_solvedMysteries.Count == 0) return false;
+            return _solvedMysteries.Count(solvedMystery => solvedMystery.IsAuthenticatedBy(mysteryId)) > 0;
+        }
+    }
 }

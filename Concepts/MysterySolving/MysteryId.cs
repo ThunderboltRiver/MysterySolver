@@ -1,14 +1,11 @@
-using System.Text.RegularExpressions;
-namespace Concepts.MysterySolving;
-public partial record MysteryId
+namespace Concepts.MysterySolving
 {
-    private readonly string _value;
-    public MysteryId(string value)
+    public partial record MysteryId
     {
-        if (string.IsNullOrEmpty(value) || !MysteryIdRegex().IsMatch(value)) throw new ArgumentException("MysteryIDが不正です");
-        this._value = value;
+        private readonly string _value;
+        public MysteryId(string value)
+        {
+            _value = value;
+        }
     }
-    [GeneratedRegex("^mst-mystery-[0-9]+$")]
-    private static partial Regex MysteryIdRegex();
-
 }

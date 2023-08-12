@@ -43,14 +43,14 @@ namespace Concepts.Tests.MysterySolvingTest
         {
             var mysteryId = new MysteryId("mst-mystery-001");
             var mystery = new SolvedMystery(mysteryId);
-            Assert.True(mystery.AuthorizedBy(mysteryId));
+            Assert.True(mystery.IsAuthenticatedBy(mysteryId));
         }
 
         [Fact]
         public void SolvedMystery_AuthorizedBy_作成した謎と異なるならfalse()
         {
             var solvedMystery = new SolvedMystery(mysteryId1);
-            Assert.False(solvedMystery.AuthorizedBy(mysteryId2));
+            Assert.False(solvedMystery.IsAuthenticatedBy(mysteryId2));
         }
 
     }

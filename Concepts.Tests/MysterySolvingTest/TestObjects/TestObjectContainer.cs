@@ -55,10 +55,5 @@ namespace Concepts.Tests.MysterySolvingTest.TestObjects
         internal static readonly IKeyInventry[] keyInventries = {
             new FakeKeyInventry(),
         };
-
-        internal static readonly SolvedRoute[] solvedRoutes = {
-            new FakeSolvedRoute(),
-        };
-
     };
 }
