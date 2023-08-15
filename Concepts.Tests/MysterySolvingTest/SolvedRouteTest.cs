@@ -1,3 +1,8 @@
+using Concepts.MysterySolving;
+using Xunit;
+using Xunit.Abstractions;
+using Xunit.Sdk;
+
 namespace Concepts.Tests.MysterySolvingTest
 {
     public class SolvedRouteTest
