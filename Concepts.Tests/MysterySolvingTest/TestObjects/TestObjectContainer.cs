@@ -1,3 +1,4 @@
+using Concepts.MysterySolving;
 using Concepts.Tests.MysterySolvingTest.TestObjects.Mock;
 
 namespace Concepts.Tests.MysterySolvingTest.TestObjects
