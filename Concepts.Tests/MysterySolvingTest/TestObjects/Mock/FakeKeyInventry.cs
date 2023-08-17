@@ -1,3 +1,5 @@
+using Concepts.MysterySolving;
+
 namespace Concepts.Tests.MysterySolvingTest.TestObjects.Mock
 {
     public class FakeKeyInventry : IKeyInventry
